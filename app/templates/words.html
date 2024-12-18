@@ -102,10 +102,20 @@
     </style>
 </head>
 <body>
+<script>
+    document.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) { // Проверка нажатия клавиши Enter
+        document.getElementById('delete').click(); // Имитируем клик на кнопке Enter
+    }
+    if (event.keyCode === 32) { // Проверка нажатия клавиши Space
+        document.getElementById('pass').click(); // Имитируем клик на кнопке Space
+    }
+});
+</script>
 <div class="form-style-10">
     <h1>{{ en_word }}</h1>
     <form action="" method="post" class="inner-wrap" style="text-align:center;">
-        <button type="submit">Дальше</button>
+        <button type="submit" id="pass">Дальше</button>
     </form>
     <br>
     <marquee behavior="alternate" direction="right" class="inner-wrap">{{ ru_word }}</marquee>
@@ -113,7 +123,7 @@
     <br>
     <br>
     <form action="" method="post" class="section" style="text-align:center;">
-        <button type="submit" name="delete" value="delete">Удалить из словаря</button>
+        <button type="submit" id="delete" name="delete" value="delete">Удалить из словаря</button>
     </form>
     <p style="text-align:center;">В словаре {{ count }} слов.</p>
     <br>
